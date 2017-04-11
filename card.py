@@ -11,24 +11,28 @@ class Card:
         	self.rank = "Invalid"
         	self.suit = "Invalid"
 
-    def checkRank(rank):
-        pass
-    def checkSuit(suit):
-    	if(suit == "clubs"):
+    def checkRank(self,rank):
+        return "Invalid"
+
+    def checkSuit(self,suit):
+    	if(self.suit == "clubs"):
     		return 1
-    	elif(suit == "diamonds"):
+    	elif(self.suit == "diamonds"):
     		return 2
-    	elif(suit == "hearts"):
+    	elif(self.suit == "hearts"):
     		return 3
-    	elif(suit =="spades"):
+    	elif(self.suit =="spades"):
     		return 4
-    	else
+    	else:
     		return 0
 
-
-
-
     def displayCard(self):
+        print("hi")
         print (self.rank+" of "+self.card)
-if(__init__=="main"):
-	c = Card("Ace")
+
+
+
+
+if __name__=="main":
+    c = Card("Ace","Clubs")
+    c.displayCard()
