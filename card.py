@@ -1,20 +1,20 @@
 class Card:
     def __init__(self, rank, suit):
-    	rank = rank.lower()
-    	suit = suit.lower()
-        self.orderRank = checkRank(rank)
-        self.orderSuit = checkSuit(suit)
-        if(orderRank!=0 and orderSuit!=0):
+    	self.rank = rank.lower()
+    	self.suit = suit.lower()
+        self.orderRank = self.checkRank()
+        self.orderSuit = self.checkSuit()
+        if(self.orderRank!=0 and self.orderSuit!=0):
             self.rank = rank
             self.suit = suit
         else:
         	self.rank = "Invalid"
         	self.suit = "Invalid"
 
-    def checkRank(self,rank):
-        return "Invalid"
+    def checkRank(self):
+        return "invalid"
 
-    def checkSuit(self,suit):
+    def checkSuit(self):
     	if(self.suit == "clubs"):
     		return 1
     	elif(self.suit == "diamonds"):
@@ -27,12 +27,9 @@ class Card:
     		return 0
 
     def displayCard(self):
-        print("hi")
-        print (self.rank+" of "+self.card)
+        print (self.rank+" of "+self.suit)
 
 
-
-
-if __name__=="main":
+if(__name__=="__main__"):
     c = Card("Ace","Clubs")
     c.displayCard()
