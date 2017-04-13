@@ -1,7 +1,7 @@
 class Card:
-    def __init__(self, passedInRank, passedInSuit):
-    	self.rank = passedInRank.lower()
-    	self.suit = passedInSuit.lower()
+    def __init__(self, rank, suit):
+    	self.rank = rank.lower()
+    	self.suit = suit.lower()
         self.orderRank = self.checkRank()
         self.orderSuit = self.checkSuit()
         if(self.orderRank!=0 and self.orderSuit!=0):
@@ -10,8 +10,10 @@ class Card:
         else:
         	self.rank = "Invalid"
         	self.suit = "Invalid"
-
+            
+            
     def checkRank(self):
+
         if(self.rank=="2"):
             return 1
         elif(self.rank=="3"):
@@ -42,6 +44,7 @@ class Card:
             return 0
 
     def checkSuit(self):
+
     	if(self.suit == "clubs"):
     		return 1
     	elif(self.suit == "diamonds"):
@@ -58,12 +61,18 @@ class Card:
 
 
 if(__name__=="__main__"):
-    a = Card("Ace","Clubs")
-    b = Card("5","DiaMOnds")
-    c = Card("4","hearts")  
-    d= Card("Blue", "5")
 
-    a.displayCard()
-    b.displayCard()
-    c.displayCard()
-    d.displayCard()
+    sentance= "this is a great card"
+    words = sentance.split(" ")
+    Card1 = Card("3","clubs")
+    Card2 = Card("4","clubs")
+
+    rank = Card1.checkRank()
+    if(Card1.orderRank>Card2.orderRank):
+        print("Card 1 won")
+        Card1.displayCard()
+    else:
+        print("Card 2 won")
+        Card2.displayCard()
+
+
