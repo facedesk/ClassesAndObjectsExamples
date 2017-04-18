@@ -44,7 +44,6 @@ class Card:
             return 0
 
     def checkSuit(self):
-
     	if(self.suit == "clubs"):
     		return 1
     	elif(self.suit == "diamonds"):
@@ -61,9 +60,6 @@ class Card:
 
 
 if(__name__=="__main__"):
-
-    sentance= "this is a great card"
-    words = sentance.split(" ")
     Card1 = Card("3","clubs")
     Card2 = Card("4","clubs")
 

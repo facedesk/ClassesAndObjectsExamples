@@ -1,3 +1,4 @@
+import random
 from card import Card
 
 class Deck:
@@ -8,11 +9,13 @@ class Deck:
 		for suit in self.validSuits:
 			for rank in self.validRanks:
 			    self.value.append(Card(rank,suit))
-    def displayDeck(self):
+    def DisplayDeck(self):
         for c in self.value:
     	    c.displayCard()
     def Shuffle(self):
-    	pass
+    	firstHalf,secondHalf = self.Cut()
+    	self.Combine(firstHalf,secondHalf)
+    	
     def TakeFromTop(self):
     	c = self.value[-1]
     	self.value.remove(c)
@@ -29,7 +32,37 @@ class Deck:
     	self.value.append(cardToAdd)
 
     def Cut(self):
-        pass
+    	first = Deck()
+    	second = Deck()
+    	halfway = len(self.value)/2
+    	first.value = self.value[halfway:]
+    	second.value=self.value[:halfway]
+    	self.value = []
+    	return first,second
 
-startingDeck = Deck()
-startingDeck.displayDeck()
+    def Combine(self,first,second):
+        ticker=True
+        while(first.value != [] or second.value !=[]):
+            cardToAdd = Card("temp","temp")
+            if(ticker and first != []):
+                cardToAdd=first.TakeFromTop()
+            elif(not ticker and second != []):
+                cardToAdd=second.TakeFromTop()
+            self.value.insert(random.randint(0,len(self.value)),cardToAdd)
+            ticker = not ticker
+
+
+
+    def Concat(self,first,second):
+    	self.value = first.value + second.value
+
+if(__name__=="__main__"):
+    startingDeck = Deck()
+    print(len(startingDeck.value))
+    startingDeck.DisplayDeck()
+    startingDeck.Shuffle()
+    print("00000000000000000000000000000000")
+    startingDeck.DisplayDeck()
+
+
+print len(startingDeck.value)
